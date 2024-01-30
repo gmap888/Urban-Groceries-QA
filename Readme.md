@@ -1,6 +1,6 @@
 # Urban.Groceries - QA Repository
 
-Bem-vindo ao repositório de Garantia de Qualidade (QA) do Urban.Groceries, um aplicativo de pedido de comida estilo Ifood. Este repositório contém documentação e recursos relacionados aos testes e qualidade do projeto.
+Bem-vindo ao repositório de Garantia de Qualidade (QA) do Urban.Groceries um aplicativo de fast-food. Este projeto foi desenvolvido durante o curso de QA da TripleTen. O repositório contém diversos recursos para auxiliar nos testes e garantir a qualidade do Urban Groceries.
 
 # Recursos
 Relatórios de Bugs no Jira:
