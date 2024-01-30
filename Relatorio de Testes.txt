@@ -1,0 +1,22 @@
+Relatório de Testes - Urban.Grocers Back-End
+Testes Realizados
+1. Trabalho com Kits:
+Testei primeiro a adição de kits e encontrei alguns bugs quando os parâmetros de quantity foram excedidos ou eram inválidos.
+Outros bugs encontrados foram no ‘parâmetro’ ID, como com ID 0 e negativos.
+Mais alguns outros bugs foram encontrados no preenchimento do body. ( Ver planilha)
+2. Trabalho com Serviços de Entrega:
+Verifiquei a disponibilidade do serviço Order and Go através do endpoint POST /order-and-go/v1/delivery.
+Encontrei alguns bugs em horários inválidos em que o servidor respondeu mal.
+Testei os horários limites de entrega e o servidor respondeu mal.
+Testei a quantidade de produtos e também encontrei bugs
+Testei o peso e também foram encontrados bugs.
+3. Trabalho com o Carrinho:
+Recebi corretamente uma lista de produtos adicionados ao carrinho usando o endpoint GET /api/v1/orders/:id.
+Não foi possível excluir um carrinho
+4. Teste de API no Postman:
+Criei solicitações no Postman para cada endpoint mencionado.
+Verifiquei se os dados da resposta estão corretos.
+Testei diferentes casos de uso e cenários.
+Conclusão
+Foram encontrados bugs nas aplicações, os principais bugs foram em quesitos de ultrapassar os limites dos requisitos nos parâmetros… O servidor respondeu de uma maneira que não deveria em vários casos… Com a lista de bugs do JIRA , será possível identificar os bugs e corrigir, principalmente os bugs críticos como não ser possível excluir um carrinho. No mais o servidor responde bem e está no caminho certo.
+Gratidão equipe 🙂
