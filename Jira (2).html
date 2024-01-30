@@ -1,0 +1,3095 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\,";
+    mso-displayed-thousand-separator:"\.";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="71">
+            <img src="https://gabrielpereira.atlassian.net/images/icon-jira-software-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="71">
+            <a href="https://gabrielpereira.atlassian.net/issues/?jql=project+%3D+%22S3%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="71">
+            Exibindo 19 pendências como em 30/jan/24 1:45 PM.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Projeto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Chave
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Resumo
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Tipo de Problema
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Estado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Prioridade
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolução
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Responsável
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Criador
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Criador
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Criado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Última visualização
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Atualizado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolvido
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Afeta as versões
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Versões de correção
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Componentes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Data limite
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votos
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Acompanhadores
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Imagens
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Tempo Estimado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Tempo Restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Tempo Gasto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Razão Trabalhada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Subtarefas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Problemas ligados
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Ambiente
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Descrição
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Nível de Segurança
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Evolução
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progresso
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Tempo Gasto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ da Estimativa Restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ da Estimativa Original
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Etiquetas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Categoria de estado alterada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Categoria de estado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Principal
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10009" data-id="customfield_10009">
+                                                        Actual end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10008" data-id="customfield_10008">
+                                                        Actual start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10003" data-id="customfield_10003">
+                                                        Approvers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Atlas project key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Atlas project status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10007" data-id="customfield_10007">
+                                                        Change reason
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10006" data-id="customfield_10006">
+                                                        Change risk
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10005" data-id="customfield_10005">
+                                                        Change type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10004" data-id="customfield_10004">
+                                                        Impact
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10027" data-id="customfield_10027">
+                                                        Locked forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10028" data-id="customfield_10028">
+                                                        Open forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10031" data-id="customfield_10031">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10029" data-id="customfield_10029">
+                                                        Submitted forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10030" data-id="customfield_10030">
+                                                        Total forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10024" data-id="customfield_10024">
+                                                        [CHART] Date of First Response
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10055" rel="10055" data-issuekey="S3-20" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-20" href="https://gabrielpereira.atlassian.net/browse/S3-20">S3-20</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM MAIS DE 20 CARACTERES NO QUANTITY, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 04/dez/23 11:41 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:16 PM </td>
+                                            <td class="updated"> 04/dez/23 11:41 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10130/BUG+5.png">
+            BUG 5.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM MAIS DE 20 CARACTERES NO ID, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO<br/>
+<br/>
+curl --location --request PUT &#39;[https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2|https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2]&#39; \<br/>
+--header &#39;Content-Type: text/plain&#39; \<br/>
+--data &#39;{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 1<br/>
+      &quot;quantity&quot;: 111111111111111111111111111111111111    <br/>
+    }<br/>
+  ],<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição PUT api/v1/orders/2<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 1<br/>
+      &quot;quantity&quot;: 111111111111111111111111111111111111    <br/>
+    }<br/>
+  ],<br/>
+}&#39;{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 200 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 04/dez/23 11:41 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000c7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10054" rel="10054" data-issuekey="S3-19" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-19" href="https://gabrielpereira.atlassian.net/browse/S3-19">S3-19</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM MAIS DE 20 CARACTERES NO ID, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 04/dez/23 11:38 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 11:40 AM </td>
+                                            <td class="updated"> 04/dez/23 11:38 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10129/BUG+5.png">
+            BUG 5.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM MAIS DE 20 CARACTERES NO ID, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO<br/>
+<br/>
+curl --location --request PUT &#39;[https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2|https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2]&#39; \<br/>
+--header &#39;Content-Type: text/plain&#39; \<br/>
+--data &#39;{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 11111111111111111111111111,<br/>
+      &quot;quantity&quot;: 1<br/>
+    }<br/>
+  ],<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição PUT api/v1/orders/2<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}&#39;{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 11111111111111111111111111,<br/>
+      &quot;quantity&quot;: 1<br/>
+    }<br/>
+  ],<br/>
+}&#39;{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 200 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 04/dez/23 11:38 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000bz:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10053" rel="10053" data-issuekey="S3-18" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-18" href="https://gabrielpereira.atlassian.net/browse/S3-18">S3-18</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM SÍMBOLO * NO ID, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 04/dez/23 11:33 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:18 PM </td>
+                                            <td class="updated"> 04/dez/23 11:38 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10128/BUG+5.png">
+            BUG 5.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      POSTMAN
+  </td>
+                                            <td class="description">      <br/>
+<br/>
+É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM SÍMBOLO * NO QUANTITY, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO<br/>
+<br/>
+curl --location --request PUT &#39;[https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2|https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2]&#39; \<br/>
+--header &#39;Content-Type: text/plain&#39; \<br/>
+--data &#39;{<br/>
+&quot;id&quot;: 2,<br/>
+&quot;userId&quot;: 2,<br/>
+&quot;productsList&quot;: [<br/>
+{<br/>
+&quot;id&quot;: *,<br/>
+&quot;quantity&quot;: 1<br/>
+}<br/>
+],<br/>
+}&#39;<br/>
+<br/>
+ <br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição PUT api/v1/orders/2<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: *,<br/>
+      &quot;quantity&quot;: 1<br/>
+    }<br/>
+  ],{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 200 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 04/dez/23 11:33 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000br:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10052" rel="10052" data-issuekey="S3-17" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-17" href="https://gabrielpereira.atlassian.net/browse/S3-17">S3-17</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM SÍMBOLO * NO QUANTITY, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 04/dez/23 11:28 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 11:31 AM </td>
+                                            <td class="updated"> 04/dez/23 11:28 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10127/BUG+5.png">
+            BUG 5.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      É POSSIVEL ENVIAR REQUISIÇÃO PUT PARA ADICIONAR PRODUTO NO CARRINHO COM SÍMBOLO * NO QUANTITY, QUE DE ACORDO COM OS REQUISITOS É INVÁLIDO<br/>
+<br/>
+curl --location --request PUT &#39;[https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2|https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/orders/2]&#39; \<br/>
+--header &#39;Content-Type: text/plain&#39; \<br/>
+--data &#39;{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 1,<br/>
+      &quot;quantity&quot;: *<br/>
+    }<br/>
+  ],<br/>
+}&#39;<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição PUT api/v1/orders/2<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+  &quot;id&quot;: 2,<br/>
+  &quot;userId&quot;: 2,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 1,<br/>
+      &quot;quantity&quot;: *<br/>
+    }<br/>
+  ],{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request <br/>
+<br/>
+*Resultado real:* 200 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 04/dez/23 11:28 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000bj:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10051" rel="10051" data-issuekey="S3-16" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-16" href="https://gabrielpereira.atlassian.net/browse/S3-16">S3-16</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO POST PARA SISTEMA DE DELIVERY ORDER AND GO COM PESO 7 (EXCEDE O LIMITE )
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 02/dez/23 11:20 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 6:25 PM </td>
+                                            <td class="updated"> 04/dez/23 2:18 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10125/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      POSTMAN
+  </td>
+                                            <td class="description">      É POSSIVEL ENVIAR REQUISIÇÃO POST PARA SISTEMA DE DELIVERY ORDER AND GO COM PESO 7, EXCEDENDO O LIMITE<br/>
+<br/>
+<br/>
+<br/>
+curl --location &#39;[https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 3,<br/>
+    &quot;productsWeight&quot;: 7<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 3,<br/>
+    &quot;productsWeight&quot;: 7<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+<br/>
+<br/>
+*Resultado esperado:* “isitpossibletodeliver”: FALSE<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 02/dez/23 11:20 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000bb:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10050" rel="10050" data-issuekey="S3-15" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-15" href="https://gabrielpereira.atlassian.net/browse/S3-15">S3-15</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO POST PARA SISTEMA DE DELIVERY ORDER AND GO COM PESO 0 
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 02/dez/23 11:15 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:18 PM </td>
+                                            <td class="updated"> 04/dez/23 2:18 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10124/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      POSTMAN
+  </td>
+                                            <td class="description">      É POSSIVEL ENVIAR REQUISIÇÃO POST PARA SISTEMA DE DELIVERY ORDER AND GO COM PESO 0<br/>
+<br/>
+<br/>
+<br/>
+curl --location &#39;[https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 3,<br/>
+    &quot;productsWeight&quot;: 0<br/>
+}&#39;<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 3,<br/>
+    &quot;productsWeight&quot;: 0<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+*Resultado esperado:* “isitpossibletodeliver”: FALSE<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 02/dez/23 11:15 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000b3:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10049" rel="10049" data-issuekey="S3-14" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-14" href="https://gabrielpereira.atlassian.net/browse/S3-14">S3-14</a>
+</td>
+                                            <td class="summary"><p>
+                É POSSIVEL ENVIAR REQUISIÇÃO POST PARA SISTEMA DE DELIVERY ORDER AND GO COM PRODUTO 16 (EXCEDE O LIMITE)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 02/dez/23 11:11 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:18 PM </td>
+                                            <td class="updated"> 04/dez/23 2:18 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10121/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar requisição POST para testar o delivery e preencheer a quantidade de produtos com 16 , o sistema responde que é verdadeiro e possível fazer a entrega, porem deveria dar erro. Pois excede o limite imposto pela requisição.<br/>
+<br/>
+<br/>
+curl --location &#39;[https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 16,<br/>
+    &quot;productsWeight&quot;: 5<br/>
+}&#39;<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 16,<br/>
+    &quot;productsWeight&quot;: 5<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ 3 - Envie a requisição<br/>
+<br/>
+<br/>
+<br/>
+*Resultado esperado:* “isitpossibletodeliver”: FALSE<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 02/dez/23 11:11 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000av:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10048" rel="10048" data-issuekey="S3-13" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-13" href="https://gabrielpereira.atlassian.net/browse/S3-13">S3-13</a>
+</td>
+                                            <td class="summary"><p>
+                AO ENVIAR REQUISIÇÃO POST PARA TESTAR SISTEMA DE DELIVERY ORDER AND GO E COLOCAR PRODUTO &#39;9&#39;, O PREÇO DEVERIA SER 3
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 02/dez/23 11:02 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:18 PM </td>
+                                            <td class="updated"> 02/dez/23 11:02 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10119/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar requisição POST para testar sistema de Delivery ORDER AND GO e colocar o produto &#39;9&#39;, o preço de acordo com os requisitos deveria ser 3.<br/>
+<br/>
+curl --location &#39;[https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://694e7879-fbde-41e6-8069-7cec60799d7b.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 9,<br/>
+    &quot;productsWeight&quot;: 2<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 9,<br/>
+    &quot;productsCount&quot;: 9,<br/>
+    &quot;productsWeight&quot;: 2<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ 3 - Envie a requisição<br/>
+<br/>
+<br/>
+<br/>
+*Resultado esperado:* Custo da entrega 3<br/>
+<br/>
+*Resultado real:* Custo da entrega 5
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 02/dez/23 11:02 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000an:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10046" rel="10046" data-issuekey="S3-11" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-11" href="https://gabrielpereira.atlassian.net/browse/S3-11">S3-11</a>
+</td>
+                                            <td class="summary"><p>
+                AO ENVIAR REQUISIÇÃO POST PARA TESTAR SISTEMA DE DELIVERY E COLOCAR HORÁRIO 23 O APLICATIVO RESPONDE TRUE (FORA DO HORÁRIO)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 01/dez/23 7:11 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 04/dez/23 2:17 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10116/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar requisição POST para testar o delivery e preencher o horario com o número 23, o sistema responde que é verdadeiro e possível fazer a entrega, porem esta fora do horario apresentado nos requisitos.<br/>
+<br/>
+ <br/>
+<br/>
+curl --location &#39;[https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+&quot;deliveryTime&quot;: 23,<br/>
+&quot;productsCount&quot;: 10,<br/>
+&quot;productsWeight&quot;: 11<br/>
+}&#39;<br/>
+<br/>
+ <br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 23,<br/>
+    &quot;productsCount&quot;: 10,<br/>
+    &quot;productsWeight&quot;: 11<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+*Resultado esperado:* “isitpossibletodeliver”: False<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/dez/23 7:11 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i000a7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10045" rel="10045" data-issuekey="S3-10" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-10" href="https://gabrielpereira.atlassian.net/browse/S3-10">S3-10</a>
+</td>
+                                            <td class="summary"><p>
+                AO ENVIAR REQUISIÇÃO POST PARA TESTAR SISTEMA DE DELIVERY E COLOCAR HORÁRIO 0 O APLICATIVO RESPONDE TRUE (FORA DO HORÁRIO )
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 01/dez/23 7:08 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 04/dez/23 2:17 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10113/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar requisição POST para testar o delivery e preencher o horario com o número 0, o sistema responde que é verdadeiro e possível fazer a entrega, porem esta fora do horario apresentado nos requisitos.<br/>
+<br/>
+ <br/>
+<br/>
+curl --location &#39;[https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+&quot;deliveryTime&quot;: 0,<br/>
+&quot;productsCount&quot;: 10,<br/>
+&quot;productsWeight&quot;: 11<br/>
+}&#39;<br/>
+<br/>
+ <br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 0,<br/>
+    &quot;productsCount&quot;: 10,<br/>
+    &quot;productsWeight&quot;: 11<br/>
+}{noformat}<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+*Resultado esperado:* “isitpossibletodeliver”: False<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/dez/23 7:08 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0009z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10044" rel="10044" data-issuekey="S3-9" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-9" href="https://gabrielpereira.atlassian.net/browse/S3-9">S3-9</a>
+</td>
+                                            <td class="summary"><p>
+                AO ENVIAR REQUISIÇÃO POST PARA TESTAR SISTEMA DE DELIVERY E COLOCAR HORÁRIO 7 O APLICATIVO RESPONDE TRUE (FORA DO HORÁRIO )
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 01/dez/23 7:05 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 04/dez/23 2:17 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10112/Anota%C3%A7%C3%A3o+2023-12-01+190432.png">
+            Anotação 2023-12-01 190432.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar requisição POST para testar o delivery e preencher o horario com o número 7,  o sistema responde que é verdadeiro e possível fazer a entrega, porem esta fora do horario apresentado nos requisitos.<br/>
+<br/>
+<br/>
+<br/>
+curl --location &#39;[https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery|https://14c21adf-0f18-4b29-8427-be28a32fe9d6.serverhub.tripleten-services.com/order-and-go/v1/delivery]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+    &quot;deliveryTime&quot;: 7,<br/>
+    &quot;productsCount&quot;: 10,<br/>
+    &quot;productsWeight&quot;: 11<br/>
+}&#39;<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição order-and-go/v1/delivery<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+    &quot;deliveryTime&quot;: 7,<br/>
+    &quot;productsCount&quot;: 10,<br/>
+    &quot;productsWeight&quot;: 11<br/>
+}{noformat}<br/>
+<br/>
+<br/>
+<br/>
+ <br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+*Resultado esperado:*  “isitpossibletodeliver”: False<br/>
+<br/>
+*Resultado real:* “isitpossibletodeliver”: True
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 01/dez/23 7:05 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0009r:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10043" rel="10043" data-issuekey="S3-8" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-8" href="https://gabrielpereira.atlassian.net/browse/S3-8">S3-8</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO PUT COM PARAMETRO &quot;QUANTITY&quot; NEGATIVA -1
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 6:00 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 30/nov/23 6:00 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10110/Bug+-1+Request.png">
+            Bug -1 Request.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Enviar requisição PUT com parametro “Quantity” negativa -1<br/>
+<br/>
+curl --location --request PUT &#39;[https://08f26149-6124-4485-a02b-655bfeefd821.serverhub.tripleten-services.com/api/v1/orders/4|https://08f26149-6124-4485-a02b-655bfeefd821.serverhub.tripleten-services.com/api/v1/orders/4]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;id&quot;: 4,<br/>
+  &quot;userId&quot;: 4,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 3,<br/>
+      &quot;quantity&quot;: -1<br/>
+    }<br/>
+  ],<br/>
+  &quot;deliveryTime&quot;: 0<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição {{/api/v1/orders/:id}}<br/>
+<br/>
+3 - Coloque o body em JSON<br/>
+<br/>
+{noformat}{<br/>
+  &quot;id&quot;: 4,<br/>
+  &quot;userId&quot;: 4,<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 1,<br/>
+      &quot;quantity&quot;: -1<br/>
+    }<br/>
+  ],<br/>
+  &quot;deliveryTime&quot;: 0<br/>
+}{noformat}<br/>
+<br/>
+<br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+*Resultado esperado:* 404 Bad Request<br/>
+<br/>
+*Resultado real:* 200 ok
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 6:00 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0009j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10042" rel="10042" data-issuekey="S3-7" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-7" href="https://gabrielpereira.atlassian.net/browse/S3-7">S3-7</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO DELETE COM TODOS PARAMETROS PREENCHIDOS PARA EXCLUIR CARRINHO
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 5:16 PM </td>
+                                            <td class="lastViewed"> 01/dez/23 4:38 PM </td>
+                                            <td class="updated"> 30/nov/23 5:16 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10109/Bug+ao+deletar+o+carrinho.png">
+            Bug ao deletar o carrinho.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar uma Requisição DELETE para excluir um carrinho com todos os parametros preenchidos, um erro diz que o carrinho não foi encontrado.<br/>
+<br/>
+curl --location --request DELETE &#39;[https://9db570ff-160a-45bc-a5d9-63d5a9aaffe2.serverhub.tripleten-services.com/api/v1/orders/2|https://9db570ff-160a-45bc-a5d9-63d5a9aaffe2.serverhub.tripleten-services.com/api/v1/orders/2]<br/>
+?id=2&#39;<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição delete /api/v1/orders/:id<br/>
+<br/>
+3 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 200 ok<br/>
+<br/>
+*Resultado real:* 404 Not Found<br/>
+
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 5:16 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0009b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10041" rel="10041" data-issuekey="S3-6" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-6" href="https://gabrielpereira.atlassian.net/browse/S3-6">S3-6</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST SEM NENHUMA ENTRADA NO BODY
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 12:42 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 30/nov/23 5:14 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10108/bug+6.png">
+            bug 6.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Enviar requisição POST sem nenhuma entrada no body<br/>
+<br/>
+<br/>
+<br/>
+curl --location --request POST &#39;[https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products|https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products]&#39; \<br/>
+--data &#39;&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Selecione JSON<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 12:42 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00093:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10040" rel="10040" data-issuekey="S3-5" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-5" href="https://gabrielpereira.atlassian.net/browse/S3-5">S3-5</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST SEM O PARAMETRO OBRIGATÓRIO &quot;ID&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 12:36 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:17 PM </td>
+                                            <td class="updated"> 30/nov/23 12:36 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10107/bug+4.png">
+            bug 4.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Enviar requisição post sem o parametro obrigatório “ID”<br/>
+<br/>
+{noformat}curl --location &#39;https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      <br/>
+      &quot;quantity&quot;: 3<br/>
+    }<br/>
+  ]<br/>
+}&#39;{noformat}<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Copie o body em JSON<br/>
+<br/>
+{   &quot;productsList&quot;: [   <br/>
+  {      <br/>
+ &quot;id&quot;:,  <br/>
+     &quot;quantity&quot;:  3   } <br/>
+  ] <br/>
+}<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 12:36 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0008v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10039" rel="10039" data-issuekey="S3-4" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-4" href="https://gabrielpereira.atlassian.net/browse/S3-4">S3-4</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST COM O PARAMETRO &quot;ID&quot; -1 ( NEGATIVO)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 12:25 PM </td>
+                                            <td class="lastViewed"> 30/nov/23 12:32 PM </td>
+                                            <td class="updated"> 30/nov/23 12:25 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10106/bug+4.png">
+            bug 4.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar a requisição post com o parametro “ID” -1, ou qualquer número negativo, o servidor funciona normalmente. <br/>
+<br/>
+curl --location &#39;[https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products|https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: -1,<br/>
+      &quot;quantity&quot;: 3<br/>
+    }<br/>
+  ]<br/>
+}&#39;<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Copie o body em JSON<br/>
+<br/>
+{   &quot;productsList&quot;: [   <br/>
+  {      <br/>
+ &quot;id&quot;: -1,  <br/>
+     &quot;quantity&quot;: -3    } <br/>
+  ] <br/>
+}<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 12:25 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0008n:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10038" rel="10038" data-issuekey="S3-3" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-3" href="https://gabrielpereira.atlassian.net/browse/S3-3">S3-3</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST COM O PARAMETRO &quot;ID&quot; 0 ( ID INVÁLIDO)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 8:06 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:16 PM </td>
+                                            <td class="updated"> 04/dez/23 2:16 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10105/bug+3.png">
+            bug 3.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Ao enviar uma requisição post com o parametro “ID” 0 o servidor deveria dar erro, mas adiciona  a quantidade a outro kit…<br/>
+<br/>
+<br/>
+<br/>
+curl --location &#39;[https://049a5012-ec7c-4844-9c64-1dcf7a2da7f0.serverhub.tripleten-services.com/api/v1/kits/7/products|https://049a5012-ec7c-4844-9c64-1dcf7a2da7f0.serverhub.tripleten-services.com/api/v1/kits/7/products]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 0,<br/>
+      &quot;quantity&quot;: 7<br/>
+    }<br/>
+  ]<br/>
+}&#39;<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Copie o body em JSON<br/>
+<br/>
+{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 0,<br/>
+      &quot;quantity&quot;: 7<br/>
+    }<br/>
+  ]<br/>
+}<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 8:06 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0008f:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10037" rel="10037" data-issuekey="S3-2" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-2" href="https://gabrielpereira.atlassian.net/browse/S3-2">S3-2</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST COM O PARAMETRO &quot;QUANTITY&quot; -1 (VALOR INVÁLIDO)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 30/nov/23 7:35 AM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:16 PM </td>
+                                            <td class="updated"> 04/dez/23 2:16 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10104/zasd.png">
+            zasd.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      Ao enviar uma requisição post com o parametro “quantity” -1 , é retirado um produto do kit, deveria dar erro.<br/>
+<br/>
+curl --location &#39;[https://4c2712e4-15c6-4e59-8921-d1dce785a651.serverhub.tripleten-services.com/api/v1/kits/7/products|https://4c2712e4-15c6-4e59-8921-d1dce785a651.serverhub.tripleten-services.com/api/v1/kits/7/products]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 7,<br/>
+      &quot;quantity&quot;: -1<br/>
+    }<br/>
+  ]<br/>
+}&#39;<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Copie o body em JSON<br/>
+<br/>
+{   &quot;productsList&quot;: [   <br/>
+  {      <br/>
+ &quot;id&quot;: 7,  <br/>
+     &quot;quantity&quot;: -1    } <br/>
+  ] <br/>
+}<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 30/nov/23 7:35 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i00087:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10036" rel="10036" data-issuekey="S3-1" class="issuerow">
+                                            <td class="project">    Sprint 3 
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="S3-1" href="https://gabrielpereira.atlassian.net/browse/S3-1">S3-1</a>
+</td>
+                                            <td class="summary"><p>
+                ENVIAR REQUISIÇÃO POST COM O PARAMETRO &quot;QUANTITY&quot; 31 (EXCEDENDO O LIMITE)
+    </p>
+</td>
+                                            <td class="issuetype">    Problema
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Não Resolvido</em>
+</td>
+                                            <td class="assignee">    <em>Sem responsável</em>
+</td>
+                                            <td class="reporter">            gabriel pereira
+    </td>
+                                            <td class="creator">            gabriel pereira
+    </td>
+                                            <td class="created"> 29/nov/23 3:41 PM </td>
+                                            <td class="lastViewed"> 04/dez/23 2:16 PM </td>
+                                            <td class="updated"> 04/dez/23 2:16 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a href="https://gabrielpereira.atlassian.net/secure/attachment/10102/BUG+API.png">
+            BUG API.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">      Postman
+  </td>
+                                            <td class="description">      curl --location &#39;[https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]&#39; \<br/>
+--header &#39;Content-Type: application/json&#39; \<br/>
+--data &#39;{<br/>
+  &quot;productsList&quot;: [<br/>
+    {<br/>
+      &quot;id&quot;: 6,<br/>
+      &quot;quantity&quot;: 31<br/>
+    }<br/>
+  ]<br/>
+}&#39;<br/>
+<br/>
+<br/>
+<br/>
+*Passo a passo para execução do bug:*<br/>
+<br/>
+ <br/>
+<br/>
+1 - Abra o Postman<br/>
+<br/>
+2 - Crie uma requisição post [api/v1/kits/7/products|https://3aba8b4c-501a-458f-a461-7fc2b459df0c.serverhub.tripleten-services.com/api/v1/kits/7/products]<br/>
+<br/>
+3 - Copie o body em JSON<br/>
+<br/>
+ {   &quot;productsList&quot;: [   <br/>
+  {      <br/>
+ &quot;id&quot;: 6,  <br/>
+     &quot;quantity&quot;: 31     } <br/>
+  ] <br/>
+}<br/>
+<br/>
+4 - Envie a requisição<br/>
+<br/>
+ <br/>
+<br/>
+*Resultado esperado:* 400 Bad Request<br/>
+<br/>
+*Resultado real:* 201 OK 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 29/nov/23 3:41 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Pendências</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10019">      0|i0007z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10031"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="customfield_10030"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="71"><font size="1">
+        Gerado às Tue Jan 30 16:45:18 UTC 2024 por gabriel pereira usando o JIRA 1001.0.0-SNAPSHOT#100245-sha1:1f690e021e6ed509e6ddbc4780e6a72602660039.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
