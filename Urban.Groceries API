@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "8e3388e2-d0db-4690-ba67-67b4a64c8756",
+		"name": "Tripleten",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31275529"
+	},
+	"item": [
+		{
+			"name": "PROJETO 3",
+			"item": [
+				{
+					"name": "api/v1/kits",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"teste1\",\r\n  \"cardId\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://af14818f-a2d9-4afb-8d26-811f4d9e11b3.serverhub.tripleten-services.com/api/v1/kits",
+							"protocol": "https",
+							"host": [
+								"af14818f-a2d9-4afb-8d26-811f4d9e11b3",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SPRINT 3",
+			"item": [
+				{
+					"name": "Obter uma lista de kits no cartão",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um kit vazio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardId\": 1, \r\n    \"name\": \"Into space\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://143f79a1-46c7-4073-a26c-54839dad80be.serverhub.tripleten-services.com/api/v1/kits?cardId=1",
+							"protocol": "https",
+							"host": [
+								"143f79a1-46c7-4073-a26c-54839dad80be",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits"
+							],
+							"query": [
+								{
+									"key": "cardId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter uma lista de kits com produtos que são aprovados pela condição da solicitação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        1,\r\n        22\r\n    ]\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://143f79a1-46c7-4073-a26c-54839dad80be.serverhub.tripleten-services.com/api/v1/products/kits",
+							"protocol": "https",
+							"host": [
+								"143f79a1-46c7-4073-a26c-54839dad80be",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"kits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://143f79a1-46c7-4073-a26c-54839dad80be.serverhub.tripleten-services.com/api/v1/kits/search?name=Into+space",
+							"protocol": "https",
+							"host": [
+								"143f79a1-46c7-4073-a26c-54839dad80be",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Into+space"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Obter todos os kits",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Obter todos os logs",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "NEW REQUEST",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/v1/kits?id=1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"kitteste\",\r\n  \"cardId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/api/v1/kits?id=1",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://3ad0d4c7-1a24-4827-b3f8-25982d7f7214.serverhub.tripleten-services.com/api/v1/kits/7/products",
+							"protocol": "https",
+							"host": [
+								"3ad0d4c7-1a24-4827-b3f8-25982d7f7214",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits",
+								"7",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "https://16520935-d3e8-4549-aba2-ef0f647722d4.serverhub.tripleten-services.com/api/v1/kits/7/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productsList\": [\r\n      \r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dc3de024-2c93-4a74-b14b-c2548a601164.serverhub.tripleten-services.com/api/v1/kits/7/products",
+							"protocol": "https",
+							"host": [
+								"dc3de024-2c93-4a74-b14b-c2548a601164",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits",
+								"7",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://deb06718-97ca-4f6e-ac2b-2daaa2a26c16.serverhub.tripleten-services.com/api/v1/kits/7/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 1,\r\n            \"quantity\": 1111111111111111111111111111111111111\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://deb06718-97ca-4f6e-ac2b-2daaa2a26c16.serverhub.tripleten-services.com/api/v1/kits/7/products",
+							"protocol": "https",
+							"host": [
+								"deb06718-97ca-4f6e-ac2b-2daaa2a26c16",
+								"serverhub",
+								"tripleten-services",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kits",
+								"7",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
